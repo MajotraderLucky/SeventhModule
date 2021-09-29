@@ -4,3 +4,4 @@ project(SeventhModule)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(CuckooFor CuckooFor.cpp)
+add_executable(SumOfNumbers SumOfNumbers.cpp)
