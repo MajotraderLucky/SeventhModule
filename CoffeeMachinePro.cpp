@@ -31,21 +31,34 @@ int main() {
                int choice;
                std::cin >> choice;
                if (choice == 1) {
-                   milk -= 270;
-                   water -= 30;
-                   countSellLatte++;
-                   if (countLatte != 0) {
-                       countLatte--;
+                   if (milk >= 270 && water >= 30) {
+                       milk -= 270;
+                       water -= 30;
+                       countSellLatte++;
+                       if (countLatte != 0) {
+                           countLatte--;
+                       }
+                   } else {
+                       std::cout << "Not have latte!\n";
+                       sumCountCoffee++;
                    }
                } else if (choice == 2) {
-                   water -= 300;
-                   countSellAmericano++;
-                   if (countAmericano != 0) {
-                       countAmericano--;
+                   if (water >= 300) {
+                       water -= 300;
+                       countSellAmericano++;
+                       if (countAmericano != 0) {
+                           countAmericano--;
+                       }
+                   } else {
+                       std::cout << "Not have americano!\n";
+                       sumCountCoffee++;
                    }
                }
            }
        }
+       std::cout << "CoffeeMachine needs to be refilled!\n";
        std::cout << "water = " << water << "\n";
        std::cout << "milk  = " << milk << "\n";
+       std::cout << "Cups of americano were sold - " << countSellAmericano << "\n";
+       std::cout << "Cups of latte were sold ----- " << countSellLatte << "\n";
 }
