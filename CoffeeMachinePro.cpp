@@ -20,8 +20,8 @@ int main() {
        } else if (countLatteMilk > countLatteWater) {
            countLatte = countLatteWater;
        }
-       bool haveDrinks = (countLatte > 0) && (countAmericano > 0);
-       for (int count = 0; haveDrinks == true; count++) {
+       int sumCountCoffee = countLatte + countAmericano;
+       for (int count = 0; count != sumCountCoffee; count++) {
            if (countAmericano >= 0 && countLatte >= 0) {
                std::cout << "latte - " << countLatte << "\n";
                std::cout << "americano - " << countAmericano << "\n";
