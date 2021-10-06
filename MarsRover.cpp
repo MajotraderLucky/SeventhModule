@@ -14,33 +14,36 @@ int main() {
            std::cout << "---> ";
            std::string move;
            std::cin >> move;
-           if (move == "w" && y <= 14) {
-               y++;
-               std::cout << "y:" << y << " - x" << x << "\n";
-           } else if (move == "w" && y >= 15) {
-               std::cout << "This is a wall forward!\n";
-               std::cout << "y:" << y << " - x" << x << "\n";
-           }
-           if (move == "s" && y >= 2) {
-               y--;
-               std::cout << "y:" << y << " - x" << x << "\n";
-           } else if (move == "s" && y < 2){
-               std::cout << "This is a wall behind!\n";
-               std::cout << "y:" << y << " - x" << x << "\n";
-           }
-           if (move == "a" && x >= 2) {
-               x--;
-               std::cout << "y:" << y << " - x" << x << "\n";
-           } else if (move == "a" && x < 2) {
-               std::cout << "This is a wall left!\n";
-               std::cout << "y:" << y << " - x" << x << "\n";
-           }
-           if (move == "d" && x <= 19) {
-               x++;
-               std::cout << "y:" << y << " - x" << x << "\n";
-           } else if (move == "d" && x > 19) {
-               std::cout << "This is a wall right!\n";
-               std::cout << "y:" << y << " - x" << x << "\n";
-           }
+                  if (move == "w" || move == "s" || move == "a" || move == "d") {
+                      if (move == "w" && y <= 14) {
+                          y++;
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      } else if (move == "w" && y >= 15) {
+                          std::cout << "This is a wall forward!\n";
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      }
+                      if (move == "s" && y >= 2) {
+                          y--;
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      } else if (move == "s" && y < 2) {
+                          std::cout << "This is a wall behind!\n";
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      }
+                      if (move == "a" && x >= 2) {
+                          x--;
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      } else if (move == "a" && x < 2) {
+                          std::cout << "This is a wall left!\n";
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      }
+                      if (move == "d" && x <= 19) {
+                          x++;
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      } else if (move == "d" && x > 19) {
+                          std::cout << "This is a wall right!\n";
+                          std::cout << "y:" << y << " - x" << x << "\n";
+                      }
+                  } else
+                   std::cout << "Incorrect value!\n";
        }
 }
