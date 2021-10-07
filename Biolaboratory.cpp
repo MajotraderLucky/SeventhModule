@@ -9,16 +9,19 @@ int main() {
     std::cout << "Enter the number of antibiotic drops\n";
     std::cout << "---> ";
     std::cin >> antibiotic;
-    int drops = 10;
-       for (int count = 0; bacteria != 0; count++) {
-           bacteria *= 2;
-           bacteria -= (antibiotic * drops);
-           std::cout << "bacteria = " << bacteria << "; drops = " << drops << "\n";
-           drops--;
-           if (drops == 0) {
-               std::cout << "Antibiotic was not enough!\n";
-               break;
-           }
-       }
-       std::cout << "Bacteria is dead!\n";
+    int drops;
+    int countHours = 0;
+    for (drops = 10; drops >= 0; drops--) {
+        countHours++;
+        if (antibiotic > 0 && bacteria > 0) {
+            bacteria *= 2;
+            bacteria -= (antibiotic * drops);
+            std::cout << "bacteria = " << bacteria << "; antibiotic = " << antibiotic * drops << "; hour = " << countHours << "\n";
+            if(drops == 0 && bacteria > 0) {
+                std::cout << "The bacteria is alive.\n";
+            } else if (drops > 0 && bacteria == 0){
+                std::cout << "The bacteria died.\n";
+            }
+        }
+    }
 }
