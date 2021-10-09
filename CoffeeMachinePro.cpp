@@ -54,5 +54,7 @@ int main() {
             }
         }
         std::cout << "The CoffeeMachine must be filled with water and milk!\n";
+        std::cout << "Latte was sold - " << sellLate << " cups\n";
+        std::cout << "Americano was sold - " << sellAmericano << " cups\n";
     }
 }
