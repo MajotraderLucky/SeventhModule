@@ -2,8 +2,7 @@
 
 int main() {
     for (int a = 0; a <= 20; a++) {
-        if (a == 0)       std::cout << "|";
-        else if (a == 20) std::cout << "|";
+        if (a == 0 || a == 20) std::cout << "|";
         else std::cout << "-";
     }
     std::cout << "\n";
