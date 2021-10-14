@@ -15,12 +15,14 @@ int main() {
         int sellLate = 0;
         int sellAmericano = 0;
         if (milk >= 270 && water >= 30) {
-            if ((milk / 270) > (water / 30)) {
+            if ((milk / 270) >= (water / 30)) {
                 latte = water / 30;
-            } else if ((milk / 270) < (water / 30)) {
+            } else if ((milk / 270) <= (water / 30)) {
                 latte = milk / 270;
+            } else if (milk < 270 || water < 30) {
+                latte = 0;
             }
-        }
+            }
         for (; (latte > 0 || americano > 0);) {
             std::cout << "Latte - " << latte << " cups\n";
             std::cout << "Americano - " << americano << " cups\n";
@@ -29,10 +31,9 @@ int main() {
             std::cout << "---> ";
             int choice;
             std::cin >> choice;
-            if (choice == 1 && milk >= 270 && water >= 30) {
+            if (choice == 1 && (milk >= 270 && water >= 30)) {
                 milk -= 270;
                 water -= 30;
-                latte--;
                 sellLate++;
                 std::cout << "milk = " << milk << "\n";
                 std::cout << "water = " << water << "\n";
@@ -43,8 +44,10 @@ int main() {
             }
             if (choice == 2 && water >= 300) {
                 water -= 300;
-                americano--;
+                americano = water / 300;
                 sellAmericano++;
+                std::cout << "Latte - " << latte << " cups\n";
+                std::cout << "Americano - " << americano << " cups\n";
                 std::cout << "milk = " << milk << "\n";
                 std::cout << "water = " << water << "\n";
             } else {
