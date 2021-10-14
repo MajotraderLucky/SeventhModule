@@ -2,62 +2,82 @@
 
 int main() {
     for (; true;) {
-        std::cout << "How much water to pour?\n";
+        std::cout << "Coffee machine initialized...\n";
+        int water = 0;
+        int milk  = 0;
+        std::cout << "Fill water\n";
         std::cout << "---> ";
-        int water;
         std::cin >> water;
-        int milk;
-        std::cout << "How much milk to pour?\n";
+        std::cout << "Fill milk\n";
         std::cout << "---> ";
         std::cin >> milk;
+        for (int a = 0; a <= 30; a++) {
+            std::cout << "*";
+        }
+        std::cout << "\n";
+        std::cout << "Water - " << water << "\n";
+        std::cout << "Milk  - " << milk << "\n";
         int americano = water / 300;
+        std::cout << "Americano - " << americano << " cups\n";
+
+        int latteWater = water / 30;
+        int latteMilk  = milk / 270;
         int latte = 0;
-        int sellLate = 0;
         int sellAmericano = 0;
-        if (milk >= 270 && water >= 30) {
-            if ((milk / 270) >= (water / 30)) {
-                latte = water / 30;
-            } else if ((milk / 270) <= (water / 30)) {
-                latte = milk / 270;
-            } else if (milk < 270 || water < 30) {
-                latte = 0;
-            }
-            }
-        for (; (latte > 0 || americano > 0);) {
-            std::cout << "Latte - " << latte << " cups\n";
-            std::cout << "Americano - " << americano << " cups\n";
-            std::cout << "for-----latte - push '1'\n";
-            std::cout << "for americano - push '2'\n";
-            std::cout << "---> ";
-            int choice;
-            std::cin >> choice;
-            if (choice == 1 && (milk >= 270 && water >= 30)) {
-                milk -= 270;
-                water -= 30;
-                sellLate++;
-                std::cout << "milk = " << milk << "\n";
-                std::cout << "water = " << water << "\n";
+        int sellLatte     = 0;
+        if (latteWater <= latteMilk) {
+            latte = latteWater;
+        } else {
+            latte = latteMilk;
+        }
+        std::cout << "Latte ---- " << latte << " cups\n";
+        for (int a = 0; a <= 30; a++) {
+            std::cout << "*";
+        }
+        for (; true;) {
+            if (water < 30 || milk < 270) {
+                std::cout << "\n";
+                std::cout << "The coffee machine needs to be refilled!\n";
+                break;
             } else {
-                std::cout << "Not have latte!\n";
-                std::cout << "milk = " << milk << "\n";
-                std::cout << "water = " << water << "\n";
-            }
-            if (choice == 2 && water >= 300) {
-                water -= 300;
+                std::cout << "\n";
+                std::cout << "To get Americano push - '1'\n";
+                std::cout << "To get Latte     push - '2'\n";
+                int answer = 0;
+                std::cout << "---> ";
+                std::cin >> answer;
+                if (answer == 1 && water >= 300) {
+                    water -= 300;
+                    sellAmericano++;
+                } else if (answer == 2 && (water >= 30 && milk >= 270)) {
+                    water -= 30;
+                    milk  -= 270;
+                    sellLatte++;
+                } else if (water <= 30 || milk <= 270) {
+                    std::cout << "\n";
+                    std::cout << "The coffee machine needs to be refilled!\n";
+                    break;
+                }
+                for (int a = 0; a <= 30; a++) {
+                    std::cout << "*";
+                }
+                std::cout << "\n";
+                std::cout << "Water - " << water << "\n";
+                std::cout << "Milk  - " << milk << "\n";
                 americano = water / 300;
-                sellAmericano++;
-                std::cout << "Latte - " << latte << " cups\n";
+                latteWater = water / 30;
+                latteMilk  = milk / 270;
                 std::cout << "Americano - " << americano << " cups\n";
-                std::cout << "milk = " << milk << "\n";
-                std::cout << "water = " << water << "\n";
-            } else {
-                std::cout << "Not have americano!\n";
-                std::cout << "milk = " << milk << "\n";
-                std::cout << "water = " << water << "\n";
+                if (latteWater <= latteMilk) {
+                    latte = latteWater;
+                } else {
+                    latte = latteMilk;
+                }
+                std::cout << "Latte ---- " << latte << " cups\n";
+                for (int a = 0; a <= 30; a++) {
+                    std::cout << "*";
+                }
             }
         }
-        std::cout << "The CoffeeMachine must be filled with water and milk!\n";
-        std::cout << "Latte was sold - " << sellLate << " cups\n";
-        std::cout << "Americano was sold - " << sellAmericano << " cups\n";
     }
 }
