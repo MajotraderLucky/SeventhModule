@@ -15,16 +15,14 @@ int main() {
     int center = 0;
     //Find the number of branches
     int countBranches = 0;
-    for (int a = 0; a < height; a++) {
+    for (int a = 0; a <= height; a++) {
         if (width % 2 != 0) {
             center = (width / 2) +1;
         } else {
             center = (width / 2);
         }
         for (int b = 0; b <= width; b++) {
-            if ((b == center) || (b == (center - countBranches)) || (b == (center + countBranches))) {
-                std::cout << "#";
-            } else if (b > (center - countBranches) && b < (center + countBranches)) {
+            if (b > (center - countBranches) && b < (center + countBranches)) {
                 std::cout << "#";
             } else {
                 std::cout << " ";
@@ -33,5 +31,4 @@ int main() {
         std::cout << "\n";
         countBranches++;
     }
-    //std::cout << "Branches = " << countBranches << "\n";
 }
